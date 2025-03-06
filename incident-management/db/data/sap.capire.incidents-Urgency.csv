@@ -1,4 +1,8 @@
 code;descr
 H;High
 M;Medium
+<<<<<<< HEAD
 L;Low
+=======
+L;Low
+>>>>>>> main

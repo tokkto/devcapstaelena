@@ -1,10 +1,10 @@
 using { cuid, managed, sap.common.CodeList } from '@sap/cds/common';
-namespace sap.capire.incidents; 
+namespace sap.capire.suppliers; 
 
 /**
-* Incidents created by Customers.
+* Suimistros created by Products.
 */
-entity Incidents : cuid, managed {  
+entity Supply : cuid, managed {  
 customer     : Association to Customers;
 title        : String  @title : 'Title';
 urgency        : Association to Urgency default 'M';
@@ -20,7 +20,7 @@ conversation  : Composition of many {
 /**
 * Customers entitled to create support Incidents.
 */
-entity Customers : managed { 
+entity Products : managed { 
 key ID        : String;
 firstName     : String;
 lastName      : String;
@@ -60,8 +60,4 @@ key code: String enum {
 }
 
 type EMailAddress : String;
-<<<<<<< HEAD
 type PhoneNumber : String;
-=======
-type PhoneNumber : String;
->>>>>>> main
