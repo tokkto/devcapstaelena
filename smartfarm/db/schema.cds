@@ -5,59 +5,30 @@ namespace sap.capire.suppliers;
 * Suimistros created by Products.
 */
 entity Supply : cuid, managed {  
-customer     : Association to Customers;
-title        : String  @title : 'Title';
-urgency        : Association to Urgency default 'M';
-status         : Association to Status default 'N';
-conversation  : Composition of many {
-    key ID    : UUID;
-    timestamp : type of managed:createdAt;
-    author    : type of managed:createdBy;
-    message   : String;
-};
+    product     : Association to Products;
+    title        : String  @title : 'Title';
+    quantity        : String;
+    description: String;
+    lote: String;
+    genre         : Association to Genre default 'M';
 }
 
 /**
-* Customers entitled to create support Incidents.
+* Products to create Suppliers.
 */
 entity Products : managed { 
-key ID        : String;
-firstName     : String;
-lastName      : String;
-name          : String = firstName ||' '|| lastName;
-email         : EMailAddress;
-phone         : PhoneNumber;
-incidents     : Association to many Incidents on incidents.customer = $self;
-creditCardNo  : String(16) @assert.format: '^[1-9]\d{15}$';
-addresses     : Composition of many Addresses on addresses.customer = $self;
+    key ID        : String;
+    materialNumber     : String;
+    description      : String;
+    lote          : String;
+    stock         : String;
+    unitofMeasure         : String;
+    suppliers     : Association to many Supply on suppliers.product = $self;
 }
 
-entity Addresses : cuid, managed {
-customer      : Association to Customers;
-city          : String;
-postCode      : String;
-streetAddress : String;
-}
-
-entity Status : CodeList {
+entity Genre : CodeList {
 key code: String enum {
-    new = 'N';
-    assigned = 'A'; 
-    in_process = 'I'; 
-    on_hold = 'H'; 
-    resolved = 'R'; 
-    closed = 'C'; 
-};
-criticality : Integer;
-}
-
-entity Urgency : CodeList {
-key code: String enum {
-    high = 'H';
-    medium = 'M'; 
-    low = 'L'; 
+    male = 'M';
+    female = 'H'; 
 };
 }
-
-type EMailAddress : String;
-type PhoneNumber : String;
