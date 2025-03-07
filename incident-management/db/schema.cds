@@ -60,4 +60,8 @@ key code: String enum {
 }
 
 type EMailAddress : String;
+<<<<<<< HEAD
 type PhoneNumber : String;
+=======
+type PhoneNumber : String;
+>>>>>>> main
