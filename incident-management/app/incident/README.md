@@ -1,14 +1,14 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Thu Mar 13 2025 04:04:47 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Thu Mar 13 2025 04:22:41 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.16.5|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/processor/|
-|**Module Name**<br>incidents|
+|**Module Name**<br>incident|
 |**Application Title**<br>Incident-Management|
 |**Namespace**<br>ns|
 |**UI5 Theme**<br>sap_horizon|
@@ -19,7 +19,7 @@
 |**Main Entity**<br>Incidents|
 |**Navigation Entity**<br>None|
 
-## incidents
+## incident
 
 An SAP Fiori application.
 
@@ -27,7 +27,7 @@ An SAP Fiori application.
 
 -   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply start your CAP project and navigate to the following location in your browser:
 
-http://localhost:4004/incidents/webapp/index.html
+http://localhost:4004/incident/webapp/index.html
 
 #### Pre-requisites:
 

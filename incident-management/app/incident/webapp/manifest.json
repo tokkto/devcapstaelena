@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "ns.incidents",
+    "id": "ns.incident",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.16.5",
-      "toolsId": "05917bc4-a7ac-4c96-9553-70ed7dce8507"
+      "toolsId": "239b918b-199e-4bf2-89b9-2f4e0f1cb1fa"
     },
     "dataSources": {
       "mainService": {
@@ -60,7 +60,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "ns.incidents.i18n.i18n"
+          "bundleName": "ns.incident.i18n.i18n"
         }
       },
       "": {
