@@ -58,9 +58,6 @@
       "html5-repo": true
     },
     "sapux": [
-      "app/incidents",
-      "app/incidents",
-      "app/incident",
       "app/incidents"
     ],
     "sql": {
