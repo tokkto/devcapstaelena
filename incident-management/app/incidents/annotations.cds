@@ -82,7 +82,7 @@ annotate service.Incidents with @(
             $Type : 'UI.DataField',
             Value : customer.name,
         },
-        TypeImageUrl : 'sap-icon://alert',
+        TypeImageUrl : 'sap-icon://calendar',
     },
     UI.FieldGroup #i18nDetails : {
         $Type : 'UI.FieldGroupType',
@@ -190,7 +190,7 @@ annotate service.Incidents.conversation with @(
         {
             $Type : 'UI.DataField',
             Value : message,
-            Label : '{i18n>Message1}',
+            Label : '{i18n>Message}',
         },
         {
             $Type : 'UI.DataField',

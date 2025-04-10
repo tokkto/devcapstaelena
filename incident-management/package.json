@@ -22,9 +22,7 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-incident": "cds watch --open incident/webapp/index.html?sap-ui-xx-viewCache=false",
-    "test": "jest tests/test.js"
+    "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -33,35 +31,21 @@
           "kind": "mocked",
           "users": {
             "incident.support@tester.sap.com": {
-              "password": "initial",
-              "roles": [
-                "support"
-              ]
+              "password": "initial2",
+              "roles": ["support"]
             },
             "alice": {
-              "roles": [
-                "support"
-              ]
+              "roles": ["support"]
             },
             "bob": {
-              "roles": [
-                "support"
-              ]
+              "roles": ["support"]
             }
           }
         }
-      },
-      "[production]": {
-        "db": "hana",
-        "auth": "xsuaa"
-      },
-      "html5-repo": true
-    },
-    "sapux": [
-      "app/incidents"
-    ],
-    "sql": {
-      "native_hana_associations": false
+      }
     }
-  }
+  },  
+  "sapux": [
+    "app/incidents"
+  ]
 }
