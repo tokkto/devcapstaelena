@@ -14,6 +14,7 @@
   "devDependencies": {
     "@cap-js/cds-types": "^0.9.0",
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "axios": "^1.8.3",
     "chai": "^4.5.0",
     "chai-as-promised": "^7.1.2",
@@ -31,20 +32,36 @@
           "kind": "mocked",
           "users": {
             "incident.support@tester.sap.com": {
-              "password": "initial2",
-              "roles": ["support"]
+              "password": "initial",
+              "roles": [
+                "support"
+              ]
             },
             "alice": {
-              "roles": ["support"]
+              "roles": [
+                "support"
+              ]
             },
             "bob": {
-              "roles": ["support"]
+              "roles": [
+                "support"
+              ]
             }
           }
         }
-      }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "html5-runtime": true,
+      "destinations": true,
+      "workzone": true
+    },
+    "sql": {
+      "native_hana_associations": false
     }
-  },  
+  },
   "sapux": [
     "app/incidents"
   ]
