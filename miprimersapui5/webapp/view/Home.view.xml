@@ -1,0 +1,10 @@
+<mvc:View controllerName="sap.demo.miprimersapui5.miprimersapui5.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Text text="Hola Mundo" />
+            <Text text="asd"/>
+        </content>
+    </Page>
+</mvc:View>
