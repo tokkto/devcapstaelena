@@ -1,0 +1,17 @@
+<mvc:View controllerName="appviewcatalog.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel headerText="Vista" class="sapUiMediumMargin" width="auto">
+                <VBox>
+                    <GenericTile class="sapUiMediumMargin" header="Soy un tile" press="onPressTile">
+                        <TileContent>
+                            <Label text="Soy la descripción del tile" wrapping="true" />
+                        </TileContent>
+                    </GenericTile>
+                </VBox>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
