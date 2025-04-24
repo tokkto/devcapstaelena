@@ -1,0 +1,140 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.sap.staelenawkl",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "2dafb2ef-1250-454f-8ed6-af16185b4550"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V2/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.135.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.sap.staelenawkl.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+        "path": "com.sap.staelenawkl.view",
+				"viewPath": "com.sap.staelenawkl.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "worklist",
+					"target": [
+						"worklist"
+					]
+				},
+				{
+					"pattern": "Products/{objectId}",
+					"name": "object",
+					"target": [
+						"object"
+					]
+				}
+			],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "worklist",
+					"viewLevel": 1,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"object": {
+					"viewName": "Object",
+					"viewId": "object",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		},    
+    "rootView": {
+      "viewName": "com.sap.staelenawkl.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
