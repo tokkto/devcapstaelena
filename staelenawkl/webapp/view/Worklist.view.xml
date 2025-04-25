@@ -8,7 +8,8 @@
 	<semantic:SemanticPage
 		id="page"
 		headerPinnable="false"
-		toggleHeaderOnTitleClick="false">
+		toggleHeaderOnTitleClick="false"
+		showFooter="true">
 
 		<semantic:titleHeading>
 			<Title
@@ -16,7 +17,38 @@
 				level="H2"/>
 		</semantic:titleHeading>
 
-		<semantic:content>
+		<semantic:headerContent>
+			<IconTabBar
+				id="iconTabBar"
+				select=".onQuickFilter"
+				expandable="false">
+				<items>
+					<IconTabFilter
+						key="all"
+						showAll="true"
+						count="{worklistView>/countAll}"
+						text="{i18n>WorklistFilterProductsAll}"/>
+					<IconTabSeparator/>
+					<IconTabFilter
+						key="inStock"
+						icon="sap-icon://message-success"
+						iconColor="Positive"
+						count="{worklistView>/inStock}"
+						text="{i18n>WorklistFilterInStock}"/>
+					<IconTabFilter
+						key="shortage"
+						icon="sap-icon://message-warning"
+						iconColor="Critical"
+						count="{worklistView>/shortage}"
+						text="{i18n>WorklistFilterShortage}"/>
+					<IconTabFilter
+						key="outOfStock"
+						icon="sap-icon://message-error"
+						iconColor="Negative"
+						count="{worklistView>/outOfStock}"
+						text="{i18n>WorklistFilterOutOfStock}"/>
+				</items>
+				<content>		
 			<Table
 				id="table"
 				width="auto"
@@ -34,6 +66,7 @@
 				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 				growing="true"
 				growingScrollToLoad="true"
+				mode="MultiSelect"				
 				updateFinished=".onUpdateFinished">
 
 				<headerToolbar>
@@ -64,7 +97,7 @@
 						id="supplierNameColumn"
 						demandPopin="false"
 						minScreenWidth="Tablet">
-						<Text text="{i18n>tableNameColumnSup}"/>
+						<Text text="{i18n>TableSupplierColumnTitle}"/>
 					</Column>	
 					<Column
 						id="unitPriceColumn"
@@ -115,19 +148,21 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-		</semantic:content>
+			</content>
+			</IconTabBar>
+
+
+		</semantic:headerContent>
 
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
-		<semantic:shareInJamAction>
-			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press=".onShareInJamPress"/>
-		</semantic:shareInJamAction>
-
-		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id ="shareTile" title="{worklistView>/saveAsTileTitle}" />
-		</semantic:saveAsTileAction>
+	 <semantic:positiveAction>
+		  <semantic:PositiveAction text="{i18n>TableProductsReorder}" press=".onUpdateStockObjects"/>
+	 </semantic:positiveAction>
+	 <semantic:negativeAction>
+		  <semantic:NegativeAction text="{i18n>TablePorductsUnlist}" press=".onUnlistObjects"/>
+	 </semantic:negativeAction>
 
 	</semantic:SemanticPage>
 
